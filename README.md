@@ -9,6 +9,7 @@ ReMo is a generic framework for video synthesis tasks.
 
 * Required dependencies for ReMo:
     * FFmpeg/libAV
+    * WebStreamer
     * Nvida Codec SDK
     * Nvida Capture
     
@@ -17,7 +18,7 @@ ReMo is a generic framework for video synthesis tasks.
 Description
 
 ```bash
-git clone --recursive https://gitlab.gmrv.es/gmrv/ReMo
+git clone --recursive https://gitlab.gmrv.es/gmrv/remo
 mkdir ReMo/build && cd ReMo/build
 cmake ..
 make

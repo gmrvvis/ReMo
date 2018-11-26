@@ -1,0 +1,2 @@
+#-*- mode: cmake -*-
+#git_subproject(webstreamer https://github.com/rwth/webstreamer.git XXXX)
