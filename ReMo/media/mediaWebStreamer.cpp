@@ -34,7 +34,7 @@ namespace remo
 
   void mediaWebStreamer::init ( ) {}
 
-  void mediaWebStreamer::setInputProcessor ( WSInputProcessor & WSInputProcessor_ )
+  void mediaWebStreamer::setInputProcessor ( webstreamerInputProcessor & WSInputProcessor_ )
   {
     _webStreamer.RegisterInputProcessor ( &WSInputProcessor_ );
   }

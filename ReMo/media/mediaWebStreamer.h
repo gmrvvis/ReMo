@@ -24,7 +24,7 @@
 #define REMO_MEDIA_WEBSTREAMER_H
 
 #include <webstreamer/webstreamer.hpp>
-#include <WSInputProcessor.h>
+#include <webstreamerInputProcessor.h>
 #include <ImageConverter.h>
 
 #include "ffMedia.h"
@@ -48,7 +48,7 @@ namespace remo
 
       webstreamer::WebStreamer & getWebStreamer ( ) {return _webStreamer;};
 
-      void setInputProcessor ( WSInputProcessor & WSInputProcessor_ );
+      void setInputProcessor ( webstreamerInputProcessor & WSInputProcessor_ );
 
     private:
 
