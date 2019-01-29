@@ -47,7 +47,7 @@ namespace remo
                                          "Init FFmpeg/libAV functionality on on device to viewer flow",
                                          this->getDescription ( ));
 
-#if LIBAVCODEC_VERSION_MAJOR < 57
+#if LIBAVFORMAT_VERSION_INT < AV_VERSION_INT(58, 9, 100)
     av_register_all ( );
     avcodec_register_all ( );
 #endif

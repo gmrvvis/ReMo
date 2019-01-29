@@ -9,7 +9,7 @@ namespace remo
 	{
 		public:
 			AbstractImageSampler();
-			~AbstractImageSampler();
+			virtual ~AbstractImageSampler();
 
 			virtual void samplePixels(
 				std::uint8_t ** srcBuffer,

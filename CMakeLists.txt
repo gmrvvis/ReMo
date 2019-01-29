@@ -17,10 +17,15 @@ endif( )
 #set WebStreamer build dir.
 if ( WEBSTREAMER_DIR )
 
+    list( APPEND CMAKE_MODULE_PATH
+     ${PROJECT_SOURCE_DIR}/CMake )
+     
     set (CMAKE_PREFIX_PATH "${WEBSTREAMER_DIR}" ${CMAKE_PREFIX_PATH})
 
     find_package( webstreamer REQUIRED )
     find_package( SDL REQUIRED )
+    find_package( FFmpeg REQUIRED )
+    find_package( Poco REQUIRED COMPONENTS Foundation Net Zip JSON Util )
 
     link_directories ( ${WEBSTREAMER_LIB_DIRS} )
 

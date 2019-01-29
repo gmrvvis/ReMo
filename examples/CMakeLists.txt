@@ -14,52 +14,59 @@ if ( WEBSTREAMER_DIR )
     SET ( ReMo_DesktopToVideo_src DesktopToVideo.cpp )
     ADD_EXECUTABLE( Desktop_To_Video ${ReMo_DesktopToVideo_src} )
     target_link_libraries ( Desktop_To_Video  ReMo
-                                              ${WEBSTREAMER_LIBRARIES}
+                                              Threads::Threads
+                                              ${FFMPEG_LIBRARIES}                                                
                                               )
 
     SET ( ReMo_PipelineTest_src PipelineSimpleTest.cpp )
     ADD_EXECUTABLE( Pipeline_Test ${ReMo_PipelineTest_src} )
     target_link_libraries ( Pipeline_Test   ReMo
-                                            ${WEBSTREAMER_LIBRARIES}
-                                            ${SDL_LIBRARY} 
+                                            Threads::Threads
+                                            ${FFMPEG_LIBRARIES}                                                
                                             )
 
     SET ( ReMo_SDLDesktopViewer_src SDLDesktopViewer.cpp )
     ADD_EXECUTABLE( SDL_Desktop_Viewer ${ReMo_SDLDesktopViewer_src} )
     target_link_libraries ( SDL_Desktop_Viewer  ReMo
                                                 Threads::Threads
-                                                ${WEBSTREAMER_LIBRARIES}
-                                                ${SDL_LIBRARY} 
+                                                ${SDL_LIBRARY}
+                                                ${FFMPEG_LIBRARIES}                                                
                                                 )
 
     SET ( ReMo_SDLWebCamViewer_src SDLWebCamViewer.cpp )
     ADD_EXECUTABLE( SDL_WebCam_Viewer ${ReMo_SDLWebCamViewer_src} )
     target_link_libraries ( SDL_WebCam_Viewer ReMo
-                                              ${WEBSTREAMER_LIBRARIES}
-                                              ${SDL_LIBRARY} 
+                                              Threads::Threads
+                                              ${SDL_LIBRARY}
+                                              ${FFMPEG_LIBRARIES}                                                
                                               )
 
     SET ( ReMo_WebCamToVideo_src WebCamToVideo.cpp )
     ADD_EXECUTABLE( WebCam_To_Video ${ReMo_WebCamToVideo_src} )
     target_link_libraries ( WebCam_To_Video ReMo
-                                            ${WEBSTREAMER_LIBRARIES}
+                                            Threads::Threads
+                                            ${FFMPEG_LIBRARIES}                                                
                                             )
 
     SET ( ReMo_DesktopToWebStream_src DesktopToWebStream.cpp )
     ADD_EXECUTABLE( Desktop_To_WebStream ${ReMo_DesktopToWebStream_src} )
     target_link_libraries ( Desktop_To_WebStream ReMo
+                                                 Threads::Threads
                                                  ${WEBSTREAMER_LIBRARIES}
-                                                 )
+                                                 ${FFMPEG_LIBRARIES}                                                
+                                                )
 
     SET ( ReMo_WebCamToWebStream_src WebCamToWebStream.cpp )
     ADD_EXECUTABLE( WebCam_To_WebStream ${ReMo_WebCamToWebStream_src} )
     target_link_libraries ( WebCam_To_WebStream ReMo
+                                                Threads::Threads
                                                 ${WEBSTREAMER_LIBRARIES}
+                                                ${FFMPEG_LIBRARIES}                                                
                                                 )
 
-     set_target_properties( Desktop_To_Video Pipeline_Test SDL_Desktop_Viewer
-                            SDL_WebCam_Viewer WebCam_To_Video Desktop_To_WebStream
-                            WebCam_To_WebStream
+    set_target_properties( Desktop_To_Video Pipeline_Test SDL_Desktop_Viewer
+                           SDL_WebCam_Viewer WebCam_To_Video Desktop_To_WebStream
+                           WebCam_To_WebStream
                             PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
 else ( WEBSTREAMER_DIR )
