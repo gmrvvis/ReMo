@@ -18,8 +18,8 @@ namespace remo
                                TMouseInputButton btn_, 
                                TMouseInputState btnState_ );
 
-        void handleKeyInput( const std::string & key_,
-                             TKeyInputState keyState_ );
+        void handleKeyInput( const std::string & key_ = nullptr,
+                             TKeyInputState keyState_ = TKeyInputState::KIS_KEY_UNKNOWN );
     };
   }
 

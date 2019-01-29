@@ -18,7 +18,7 @@
  *
  */
 
-#ifdef WEBSTREAMER
+#ifdef REMO_USE_WEBSTREAMER
 
 #ifndef REMO_STREAM_WEBSTREAMER_H
 #define REMO_STREAM_WEBSTREAMER_H
@@ -53,5 +53,5 @@ namespace remo
 
   };
 }
-#endif //WEBSTREAMER defined
+#endif //REMO_USE_WEBSTREAMER defined
 #endif //REMO_STREAM_WEBSTREAMER_H

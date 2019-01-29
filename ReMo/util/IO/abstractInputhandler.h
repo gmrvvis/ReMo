@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <string>
 
+//### This classes and heritaged will be deleted in the nex versions!
 namespace remo
 {
   namespace inputHandler
@@ -43,7 +44,8 @@ namespace remo
 
         virtual void handleKeyInput ( const std::string & key_,
                                       TKeyInputState keyState_ ) = 0;
-    };
+        virtual ~abstractInputHandler( void ) {}
+  };
   }
 }
 

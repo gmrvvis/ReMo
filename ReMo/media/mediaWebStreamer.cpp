@@ -18,7 +18,7 @@
  *
  */
 
-#ifdef WEBSTREAMER
+#ifdef REMO_USE_WEBSTREAMER
 
 #include "mediaWebStreamer.h"
 #include "Utils.h"
@@ -53,4 +53,4 @@ namespace remo
                             imageConverter_->getImage().size( ) );
   }
 }
-#endif //WEBSTREAMER
+#endif //REMO_USE_WEBSTREAMER

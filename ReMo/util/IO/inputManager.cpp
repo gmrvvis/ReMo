@@ -9,11 +9,13 @@ namespace remo
                                               TMouseInputButton btn_, 
                                               TMouseInputState btnState_ )
     {
+      (void)screenX_; (void)screenY_; (void)btn_; (void)btnState_;
     }
 
     void dummyInputHandler::handleKeyInput( const std::string & key_,
                                             TKeyInputState keyState_ )
     {
+      (void)key_; (void)keyState_;
     }
   }
 

@@ -18,7 +18,7 @@
  *
  */
 
-#ifdef WEBSTREAMER
+#ifdef REMO_USE_WEBSTREAMER
 
 #ifndef REMO_FLOW_DEVICETOWEBSTREAM_H
 #define REMO_FLOW_DEVICETOWEBSTREAM_H
@@ -59,6 +59,6 @@ namespace remo
       AVFrame* _frameProc;
   };
 }
-#endif //WEBSTREAMER defined
+#endif //REMO_USE_WEBSTREAMER defined
 
 #endif //REMO_FLOW_DEVICETOWEBSTREAMER

@@ -18,7 +18,7 @@
  *
  */
 
-#ifdef WEBSTREAMER
+#ifdef REMO_USE_WEBSTREAMER
 
 #ifndef REMO_MEDIA_WEBSTREAMER_H
 #define REMO_MEDIA_WEBSTREAMER_H
@@ -58,6 +58,6 @@ namespace remo
       webstreamer::WebStreamer _webStreamer;
   };
 }
-#endif //WEBSTREAMER defined
+#endif //REMO_USE_WEBSTREAMER defined
 
 #endif //REMO_MEDIA_WEBSTREAMER_H

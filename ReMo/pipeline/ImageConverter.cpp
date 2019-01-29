@@ -30,7 +30,7 @@ namespace remo
 		      int tempI = ((i * dstWidth) + j);
 		      int index = tempI * 3;
 
-					int frameI, frameJ, bmpIndex0;
+					int frameI, frameJ;
 					remapIndexes(i, j, dstWidth, dstHeight, srcWidth, srcHeight, frameI, frameJ);
 
 					std::uint8_t r, g, b;
@@ -47,15 +47,15 @@ namespace remo
 
 	void ImageConverter::remapIndexes(
 		int i, int j, 
-		int dstWidth, int dstHeight, 
+		int distWidth, int distHeight,
 		int originalWidth, int originalHeight, 
 		int &iResult, int &jResult)
 	{
 		float iFlt = static_cast<float>(i);
 		float jFlt = static_cast<float>(j);
 	
-		float dstWFlt = static_cast<float>(dstWidth);
-		float dstHFlt = static_cast<float>(dstHeight);
+		float dstWFlt = static_cast<float>(distWidth);
+		float dstHFlt = static_cast<float>(distHeight);
 
 		float srcWFlt = static_cast<float>(originalWidth);
 		float srcHFlt = static_cast<float>(originalHeight);

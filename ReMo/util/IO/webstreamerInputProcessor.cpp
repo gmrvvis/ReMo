@@ -1,4 +1,4 @@
-#ifdef WEBSTREAMER
+#ifdef REMO_USE_WEBSTREAMER
 
 #include "webstreamerInputProcessor.h"
 
@@ -96,6 +96,8 @@ namespace remo
       case webstreamer::MouseAction::DOUBLE_CLICK:
         result = inputHandler::TMouseInputState::MIS_BUTTON_DBL_CLICK;
         break;
+      default:
+        break;
     }
 
     return result;
@@ -123,4 +125,4 @@ namespace remo
     return result;
   }
 }
-#endif //WEBSTREAMER defined
+#endif //REMO_USE_WEBSTREAMER defined

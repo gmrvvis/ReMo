@@ -1,4 +1,4 @@
-#ifdef WEBSTREAMER
+#ifdef REMO_USE_WEBSTREAMER
 
 #ifndef __REMO_WSINPUTHANDLER_H__
 #define __REMO_WSINPUTHANDLER_H__
@@ -35,5 +35,5 @@ namespace remo
       double _screenHeight;
   };
 }
-#endif //WEBSTREAMER defined
+#endif //REMO_USE_WEBSTREAMER defined
 #endif

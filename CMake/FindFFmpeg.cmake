@@ -17,6 +17,8 @@
 * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 ]]
 
+#TODO: find libx264, libx265, libvpx needs to be improved
+
 if (FFMPEG_LIBRARIES AND FFMPEG_INCLUDE_DIR)
 
   set(FFMPEG_FOUND TRUE)
@@ -77,7 +79,7 @@ else ()
        AND FFMPEG_avdevice_FOUND AND FFMPEG_avdevice_FOUND)
     set(FFMPEG_FOUND TRUE)
     set(FFMPEG_INCLUDE_DIR ${FFMPEG_AVCODEC_INCLUDE_DIR})
-    message(STATUS "Libs Found: --->>>> ${FFMPEG_LIBRARIES} ")
+    message(STATUS "FFmpeg/libAV libs found: ${FFMPEG_LIBRARIES} ")
   else()
     message(FATAL_ERROR "Could not find libavcodec or libavformat or libavutil or libavdevice")
   endif(FFMPEG_avcodec_FOUND AND FFMPEG_avformat_FOUND

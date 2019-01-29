@@ -45,7 +45,7 @@ namespace remo
 		private:
 			void remapIndexes(
 				int i, int j, 
-				int dstWidth, int dstHeight, 
+				int dstWidth_, int dstHeight_, 
 				int originalWidth, int originalHeight, 
 				int &iResult, int &jResult);
 	};

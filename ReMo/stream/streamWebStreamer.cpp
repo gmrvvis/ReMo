@@ -18,7 +18,7 @@
  *
  */
 
-#ifdef WEBSTREAMER
+#ifdef REMO_USE_WEBSTREAMER
 
 #include "streamWebStreamer.h"
 
@@ -65,4 +65,4 @@ namespace remo
     _mediaWebStreamer->pushImage (_imageConverter);
   }
 }
-#endif //WEBSTREAMER defined
+#endif //REMO_USE_WEBSTREAMER defined
