@@ -18,28 +18,36 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#ifndef REMO_FFSTREAM_H
+#define REMO_FFSTREAM_H
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
+#include "Stream.h"
+#include "ffdefs.h"
 
-namespace remo //Probably this code must be in nsol in the future
+namespace remo
 {
-  class Utils
+  class FFStream: public Stream
   {
-      static Utils* _instance;
-
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
     public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
+      FFStream ( Media* media_ );
+      virtual ~FFStream ( void );
+
+      AVFormatContext* getFormatContext ( void ) { return _AVFormatContext; }
+      AVCodecContext* getCodecContext ( void ) { return _AVCodecContext; }
+      int getVideoStreamIndx ( void ) { return _videoStreamIndx; }
+
+      virtual void init ( void ) = 0;
+
+    protected:
+      int _videoStreamIndx;
+
+      AVFormatContext* _AVFormatContext;
+      AVInputFormat* _AVInputFormat;
+
+      AVCodec* _AVCodec;
+      AVCodecContext* _AVCodecContext;
+
   };
 }
 
-#endif
+#endif //REMO_STDSTREAM_H

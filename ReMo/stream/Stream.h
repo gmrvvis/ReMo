@@ -18,28 +18,27 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#ifndef REMO_STREAM_H
+#define REMO_STREAM_H
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
+#include "Media.h"
 
-namespace remo //Probably this code must be in nsol in the future
+namespace remo
 {
-  class Utils
+  class Stream
   {
-      static Utils* _instance;
-
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
     public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
+      Stream ( Media* media_ );
+      virtual ~Stream ( ) = default;
+
+      std::string getDescription ( void );
+
+      virtual void init ( void ) = 0;
+
+    protected:
+      std::string _description;
+      Media* _media;
   };
 }
 
-#endif
+#endif //REMO_STREAM_H

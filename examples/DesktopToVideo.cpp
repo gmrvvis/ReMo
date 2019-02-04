@@ -20,9 +20,9 @@
 
 #include <iostream>
 
-#include <flow/flowDeviceToVideoFile.h>
-#include <media/mediaDesktop.h>
-#include <media/mediaVideoFile.h>
+#include <flow/FlowDeviceToVideoFile.h>
+#include <media/MediaDesktop.h>
+#include <media/MediaVideoFile.h>
 #include <util/Utils.h>
 
 using namespace std;
@@ -32,22 +32,22 @@ int main ( )
   remo::Utils::getInstance ( )
     ->getLog ( ) ( remo::LOG_LEVEL::INFO, "Init logging." );
 
-  //Define the input media and stream
-  std::unique_ptr < remo::media > im =
-          std::unique_ptr < remo::mediaDesktop > ( new remo::mediaDesktop ( 1024, //1680
+  //Define the input Media and Stream
+  std::unique_ptr < remo::Media > im =
+          std::unique_ptr < remo::MediaDesktop > ( new remo::MediaDesktop ( 1024, //1680
                                                                             768 )); //1050
-  std::unique_ptr < remo::stream >
-    is = std::unique_ptr < remo::streamDeviceIn > ( new remo::streamDeviceIn ( im.get ( )));
+  std::unique_ptr < remo::Stream >
+    is = std::unique_ptr < remo::StreamDeviceIn > ( new remo::StreamDeviceIn ( im.get ( )));
 
-  //Define the output media and stream
-  std::unique_ptr < remo::media > om =
-    std::unique_ptr < remo::mediaVideoFile > ( new remo::mediaVideoFile ( ));
-  std::unique_ptr < remo::stream >
-    os = std::unique_ptr < remo::streamVideoFileOut > ( new
-      remo::streamVideoFileOut ( om.get ( )));
+  //Define the output Media and Stream
+  std::unique_ptr < remo::Media > om =
+    std::unique_ptr < remo::MediaVideoFile > ( new remo::MediaVideoFile ( ));
+  std::unique_ptr < remo::Stream >
+    os = std::unique_ptr < remo::StreamVideoFileOut > ( new
+      remo::StreamVideoFileOut ( om.get ( )));
 
-  //Define the flow and process
-  remo::flowDeviceToVideoFile f ( is.get ( ), os.get ( ));
+  //Define the Flow and process
+  remo::FlowDeviceToVideoFile f ( is.get ( ), os.get ( ));
 
   f.processStreams ( );
 

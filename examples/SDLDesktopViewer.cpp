@@ -20,9 +20,9 @@
 
 #include <iostream>
 
-#include <flowDeviceToSDLViewer.h>
-#include <mediaDesktop.h>
-#include <mediaVideoFile.h>
+#include <FlowDeviceToSDLViewer.h>
+#include <MediaDesktop.h>
+#include <MediaVideoFile.h>
 #include <Utils.h>
 
 using namespace std;
@@ -32,23 +32,23 @@ int main ( )
   remo::Utils::getInstance ( )
     ->getLog ( ) ( remo::LOG_LEVEL::INFO, "Init logging." );
 
-  //Define the input media and stream
-  std::unique_ptr < remo::media >
-    im = std::unique_ptr < remo::mediaDesktop > ( new remo::mediaDesktop ( ));
-  std::unique_ptr < remo::stream >
-    is = std::unique_ptr < remo::streamDeviceIn > ( new remo::streamDeviceIn
+  //Define the input Media and Stream
+  std::unique_ptr < remo::Media >
+    im = std::unique_ptr < remo::MediaDesktop > ( new remo::MediaDesktop ( ));
+  std::unique_ptr < remo::Stream >
+    is = std::unique_ptr < remo::StreamDeviceIn > ( new remo::StreamDeviceIn
       ( im.get ( )));
 
-  //Define the output media and stream
-  std::unique_ptr < remo::media > om =
-    std::unique_ptr < remo::mediaSDLViewer > ( new remo::mediaSDLViewer ( ));
-  std::unique_ptr < remo::stream >
-    os = std::unique_ptr < remo::streamSDLViewerOut > ( new
-      remo::streamSDLViewerOut ( om.get ( )));
+  //Define the output Media and Stream
+  std::unique_ptr < remo::Media > om =
+    std::unique_ptr < remo::MediaSDLViewer > ( new remo::MediaSDLViewer ( ));
+  std::unique_ptr < remo::Stream >
+    os = std::unique_ptr < remo::StreamSDLViewerOut > ( new
+      remo::StreamSDLViewerOut ( om.get ( )));
 
-  //Define the flow and process
-  //remo::flowDeviceToSDLViewer f ( is.get (), os.get (), true ); //Continuous visualization.
-  remo::flowDeviceToSDLViewer f ( is.get ( ), os.get ( ));
+  //Define the Flow and process
+  //remo::FlowDeviceToSDLViewer f ( is.get (), os.get (), true ); //Continuous visualization.
+  remo::FlowDeviceToSDLViewer f ( is.get ( ), os.get ( ));
   f.processStreams ( );
 
   remo::Utils::getInstance ( )->getLog ( ) ( remo::LOG_LEVEL::INFO,

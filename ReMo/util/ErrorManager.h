@@ -18,28 +18,32 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#ifndef _REMO_ERRORMANAGER_H
+#define _REMO_ERRORMANAGER_H
+
+#include <string>
 
 #include "Logger.hpp"
-#include "ErrorManager.h"
 
 namespace remo //Probably this code must be in nsol in the future
 {
-  class Utils
+  class ErrorManager
   {
-      static Utils* _instance;
-
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
+      log* _log;
     public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
+      enum ERROR_TYPE
+      {
+        NO_ERR,
+        MEMORY_RESERVATION_ERROR,
+        FILE_IO_ERROR,
+        CUSTOM
+      };
+
+      ErrorManager ( void ) { _log = nullptr; };
+      ~ErrorManager ( void ) {};
+
+      void criticalError ( std::string error_ );
+      void setLog ( log* log_ ) { _log = log_; };
   };
 }
-
-#endif
+#endif //FFMPEG_TESTS_ERRORMANAGER_H

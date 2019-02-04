@@ -18,28 +18,33 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#ifndef REMO_FFMEDIA_H
+#define REMO_FFMEDIA_H
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
+#include <string>
 
-namespace remo //Probably this code must be in nsol in the future
+#include "ffdefs.h"
+#include "Media.h"
+
+namespace remo
 {
-  class Utils
+  class FFMedia: public Media
   {
-      static Utils* _instance;
-
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
     public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
+      FFMedia ( void );
+      virtual ~FFMedia ( void ) = default;
+
+      virtual void init ( void ) = 0;
+
+      void setOptions ( AVDictionary* options_ ) { _options = options_; }
+      void setOption ( std::string option_, std::string value_ );
+
+      AVDictionary* getOptions ( void ) { return _options; }
+      std::string getQualifier ( void ) { return _ffmpegQualifier; }
+
+    protected:
+      AVDictionary* _options;
+      std::string _ffmpegQualifier;
   };
 }
-
-#endif
+#endif //REMO_FFMEDIA_H

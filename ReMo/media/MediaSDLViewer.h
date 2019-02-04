@@ -18,28 +18,37 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#ifndef REMO_MEDIA_SDLVIEWER_H
+#define REMO_MEDIA_SDLVIEWER_H
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
+#include <SDL/SDL.h>
 
-namespace remo //Probably this code must be in nsol in the future
+#include "FFMedia.h"
+
+namespace remo
 {
-  class Utils
+  class MediaSDLViewer: public FFMedia
   {
-      static Utils* _instance;
-
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
     public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
+      MediaSDLViewer ( void );
+      virtual ~MediaSDLViewer ( void ) = default;
+
+      virtual void init ( void );
+
+      void draw ( AVFrame* frameYUV_ );
+
+      void setOverlayResolution ( unsigned int overlayWidth_,
+                                  unsigned int overlayHeigh_ );
+      unsigned int getOverlayWidth ( void ) { return _overlayWidth; }
+      unsigned int getOverlayHeigh ( void ) { return _overlayHeigh; }
+
+    private:
+
+      unsigned int _overlayWidth, _overlayHeigh;
+
+      SDL_Surface* _surface;
+      SDL_Overlay* _overlay;
+      SDL_Rect _rect;
   };
 }
-
-#endif
+#endif //REMO_MEDIA_SDLVIEWER_H

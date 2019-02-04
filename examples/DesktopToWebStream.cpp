@@ -20,9 +20,9 @@
 
 #include <iostream>
 
-#include <flowDeviceToWebStream.h>
-#include <mediaDesktop.h>
-#include <mediaWebStreamer.h>
+#include <FlowDeviceToWebStream.h>
+#include <MediaDesktop.h>
+#include <MediaWebStreamer.h>
 #include <Utils.h>
 
 using namespace std;
@@ -32,22 +32,22 @@ int main ( )
   remo::Utils::getInstance ( )
     ->getLog ( ) ( remo::LOG_LEVEL::INFO, "Init logging." );
 
-  //Define the input media and stream
-  std::unique_ptr < remo::media >
-    im = std::unique_ptr < remo::mediaDesktop > ( new remo::mediaDesktop ( ));
-  std::unique_ptr < remo::stream >
-    is = std::unique_ptr < remo::streamDeviceIn > ( new remo::streamDeviceIn
+  //Define the input Media and Stream
+  std::unique_ptr < remo::Media >
+    im = std::unique_ptr < remo::MediaDesktop > ( new remo::MediaDesktop ( ));
+  std::unique_ptr < remo::Stream >
+    is = std::unique_ptr < remo::StreamDeviceIn > ( new remo::StreamDeviceIn
       ( im.get ( )));
 
-  //Define the output media and stream
-  std::unique_ptr < remo::media > om =
-    std::unique_ptr < remo::mediaWebStreamer > ( new remo::mediaWebStreamer ( ));
-  std::unique_ptr < remo::stream >
-    os = std::unique_ptr < remo::streamWebStreamer > ( new
-      remo::streamWebStreamer ( om.get ( )));
+  //Define the output Media and Stream
+  std::unique_ptr < remo::Media > om =
+    std::unique_ptr < remo::MediaWebStreamer > ( new remo::MediaWebStreamer ( ));
+  std::unique_ptr < remo::Stream >
+    os = std::unique_ptr < remo::StreamWebStreamer > ( new
+      remo::StreamWebStreamer ( om.get ( )));
 
-  //Define the flow and process
-  remo::flowDeviceToWebStream f ( is.get ( ), os.get ( ));
+  //Define the Flow and process
+  remo::FlowDeviceToWebStream f ( is.get ( ), os.get ( ));
   f.processStreams ( );
 
   remo::Utils::getInstance ( )->getLog ( ) ( remo::LOG_LEVEL::INFO,

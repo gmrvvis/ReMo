@@ -18,28 +18,25 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#ifndef REMO_MEDIA_VIDEOFILE_H
+#define REMO_MEDIA_VIDEOFILE_H
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
+#include "Media.h"
 
-namespace remo //Probably this code must be in nsol in the future
+namespace remo
 {
-  class Utils
+  class MediaVideoFile: public Media
   {
-      static Utils* _instance;
-
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
     public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
+      MediaVideoFile ( std::string file_ = "output.mp4" );
+      virtual ~MediaVideoFile ( void ) = default;
+
+      virtual void init ( void );
+
+      std::string getFileName ( void ) { return _file; }
+    protected:
+      std::string _file;
+
   };
 }
-
-#endif
+#endif //REMO_MEDIA_VIDEOFILE_H

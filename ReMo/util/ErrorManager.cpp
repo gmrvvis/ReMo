@@ -18,28 +18,16 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
-
-#include "Logger.hpp"
 #include "ErrorManager.h"
 
-namespace remo //Probably this code must be in nsol in the future
+namespace remo
 {
-  class Utils
+  void ErrorManager::criticalError ( std::string error_ )
   {
-      static Utils* _instance;
-
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
-    public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
-  };
+    if ( _log != nullptr )
+    {
+      ( _log )->operator() ( LOG_LEVEL::ERROR, error_ );
+    }
+    exit ( 1 );
+  }
 }
-
-#endif

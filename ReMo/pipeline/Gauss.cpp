@@ -18,28 +18,25 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#include "Gauss.h"
+#include "Utils.h"
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
-
-namespace remo //Probably this code must be in nsol in the future
+namespace remo
 {
-  class Utils
+  Gauss::Gauss ( void ): Filter ( )
   {
-      static Utils* _instance;
+    _description = "Basic Gauss Filter Operation";
+  }
 
-      Utils ( void ) {};
-      ~Utils ( void );
+  void Gauss::init ( void )
+  {
+    Utils::getInstance ( )
+      ->getLog ( ) ( LOG_LEVEL::INFO, "Initiating Gauss Filter." );
+  }
 
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
-    public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
-  };
+  void Gauss::apply ( void )
+  {
+    Utils::getInstance ( )->getLog ( ) ( LOG_LEVEL::INFO,
+                                         "Applying Gauss Filter -> Not implemented yet!" );
+  }
 }
-
-#endif

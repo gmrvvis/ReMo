@@ -20,9 +20,9 @@
 
 #include <iostream>
 
-#include <flowDeviceToVideoFile.h>
-#include <mediaWebCam.h>
-#include <mediaVideoFile.h>
+#include <FlowDeviceToVideoFile.h>
+#include <MediaWebCam.h>
+#include <MediaVideoFile.h>
 #include <Utils.h>
 
 using namespace std;
@@ -32,21 +32,21 @@ int main ( )
   remo::Utils::getInstance ( )
     ->getLog ( ) ( remo::LOG_LEVEL::INFO, "Init logging." );
 
-  //Define the input media and stream
-  std::unique_ptr < remo::media >
-    im = std::unique_ptr < remo::mediaWebCam > ( new remo::mediaWebCam ( ));
-  std::unique_ptr < remo::stream >
-    is = std::unique_ptr < remo::streamDeviceIn > ( new remo::streamDeviceIn ( im.get ( )));
+  //Define the input Media and Stream
+  std::unique_ptr < remo::Media >
+    im = std::unique_ptr < remo::MediaWebCam > ( new remo::MediaWebCam ( ));
+  std::unique_ptr < remo::Stream >
+    is = std::unique_ptr < remo::StreamDeviceIn > ( new remo::StreamDeviceIn ( im.get ( )));
 
-  //Define the output media and stream
-  std::unique_ptr < remo::media > om =
-    std::unique_ptr < remo::mediaVideoFile > ( new remo::mediaVideoFile ( ));
-  std::unique_ptr < remo::stream >
-    os = std::unique_ptr < remo::streamVideoFileOut > ( new remo::streamVideoFileOut (
+  //Define the output Media and Stream
+  std::unique_ptr < remo::Media > om =
+    std::unique_ptr < remo::MediaVideoFile > ( new remo::MediaVideoFile ( ));
+  std::unique_ptr < remo::Stream >
+    os = std::unique_ptr < remo::StreamVideoFileOut > ( new remo::StreamVideoFileOut (
       om.get ( )));
 
-  //Define the flow and process
-  remo::flowDeviceToVideoFile f ( is.get ( ), os.get ( ));
+  //Define the Flow and process
+  remo::FlowDeviceToVideoFile f ( is.get ( ), os.get ( ));
   f.processStreams ( );
 
   remo::Utils::getInstance ( )->getLog ( ) ( remo::LOG_LEVEL::INFO,

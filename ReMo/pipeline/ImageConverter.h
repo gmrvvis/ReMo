@@ -28,10 +28,10 @@ namespace remo
 				int srcWidth, 
 				int srcHeight);
 
-			std::vector<char> & getImage();
+			std::vector<char> & getImage ( void );
 
 			template<class ImgSamplerType>
-			void setImageSampler()
+			void setImageSampler ( void )
 			{
 				if(!std::is_base_of<AbstractImageSampler, ImgSamplerType>::value)
 				{

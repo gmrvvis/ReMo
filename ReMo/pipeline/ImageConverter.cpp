@@ -70,7 +70,7 @@ namespace remo
 		jResult = std::min<int>(std::max<int>(0, jResult), originalWidth);
 	}
 
-	std::vector<char> & ImageConverter::getImage()
+	std::vector<char> & ImageConverter::getImage ( void )
 	{
 		return dstBuffer;
 	}

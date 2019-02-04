@@ -15,31 +15,27 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
- *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#ifndef REMO_STREAM_DEVICEIN_H
+#define REMO_STREAM_DEVICEIN_H
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
+#include "FFStream.h"
+#include "MediaDesktop.h"
+#include "MediaWebCam.h"
 
-namespace remo //Probably this code must be in nsol in the future
+namespace remo
 {
-  class Utils
+  class StreamDeviceIn: public FFStream
   {
-      static Utils* _instance;
-
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
     public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
+      StreamDeviceIn ( Media* inMedia_ );
+      virtual ~StreamDeviceIn ( void ) = default;
+
+      virtual void init ( void );
+
+    private:
   };
 }
 
-#endif
+#endif //REMO_STREAM_DEVICEIN_H

@@ -18,28 +18,26 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#include "MediaWebCam.h"
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
-
-namespace remo //Probably this code must be in nsol in the future
+namespace remo
 {
-  class Utils
+  MediaWebCam::MediaWebCam ( void )
   {
-      static Utils* _instance;
+    _description = "WebCam grabber.";
+    _ffmpegQualifier = "video4linux2";
 
-      Utils ( void ) {};
-      ~Utils ( void );
+    //###Windows and MacOS needs to be added!
+    setPhysicalMedia ( );
+  }
 
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
-    public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
-  };
+  void MediaWebCam::init ( void )
+  {
+    //Something to do here
+  }
+
+  void MediaWebCam::setPhysicalMedia ( const std::string& physicalMedia_ )
+  {
+    _physicalMedia = physicalMedia_;
+  }
 }
-
-#endif

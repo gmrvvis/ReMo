@@ -1,0 +1,128 @@
+#ifdef REMO_USE_WEBSTREAMER
+
+#include "WebstreamerInputProcessor.h"
+
+namespace remo
+{
+  WebstreamerInputProcessor::WebstreamerInputProcessor ( )
+    : _screenWidth ( 0 )
+    , _screenHeight ( 0 )
+  {
+  }
+
+  WebstreamerInputProcessor::~WebstreamerInputProcessor ( )
+  {
+  }
+
+  void WebstreamerInputProcessor::setScreenSize ( unsigned int width_, 
+                                                  unsigned int height_ )
+  {
+    _screenWidth = static_cast < double > ( width_ );
+    _screenHeight = static_cast < double > ( height_ );
+  }
+
+  void 
+  WebstreamerInputProcessor::ProcessMouseInput ( const webstreamer::MouseEvent & evt_ ) 
+  {
+    int realPosX = static_cast<int> ( evt_.x() * _screenWidth );
+    int realPosY = static_cast<int> ( evt_.y() * _screenHeight );
+
+    inputHandler::TMouseInputButton 
+      mib = WSButtonToDSButton ( evt_.button() );
+    inputHandler::TMouseInputState 
+      mis = WSBtnActionToDSButtonState ( evt_.action() );
+
+    InputManager::getInstance().handleMouseInput( realPosX, 
+                                                  realPosY, 
+                                                  mib, 
+                                                  mis );
+  }
+
+  void 
+  WebstreamerInputProcessor::ProcessKeyboardInput( const webstreamer::KeyboardEvent & evt_ ) 
+  {
+    std::string key = evt_.key();
+
+    if(key.empty())
+    {
+      return;
+    }
+
+    inputHandler::TKeyInputState kis = WSKeyStateToDSKeyState( evt_.action() );
+
+    InputManager::getInstance().handleKeyInput ( key, kis );
+  }
+
+  inputHandler::TMouseInputButton 
+  WebstreamerInputProcessor::WSButtonToDSButton( webstreamer::MouseButton mb_ )
+  {
+    inputHandler::TMouseInputButton 
+      result = inputHandler::TMouseInputButton::MIB_UNKNOWN;
+
+    switch ( mb_ )
+    {
+      case webstreamer::MouseButton::MAIN:
+        result = inputHandler::TMouseInputButton::MIB_BUTTON_0;
+        break;
+      case webstreamer::MouseButton::AUXILIARY:
+        result = inputHandler::TMouseInputButton::MIB_BUTTON_1;
+        break;
+      case webstreamer::MouseButton::SECONDARY:
+        result = inputHandler::TMouseInputButton::MIB_BUTTON_2;
+        break;
+      case webstreamer::MouseButton::FOURTH:
+        break;
+      case webstreamer::MouseButton::FIFTH:
+        break;
+    }
+
+    return result;
+  }
+
+  inputHandler::TMouseInputState 
+  WebstreamerInputProcessor::WSBtnActionToDSButtonState ( webstreamer::MouseAction ma_ )
+  {
+    inputHandler::TMouseInputState 
+      result = inputHandler::TMouseInputState::MIS_DUMMY;
+
+    switch( ma_ )
+    {
+      case webstreamer::MouseAction::BUTTON_DOWN:
+        result = inputHandler::TMouseInputState::MIS_BUTTON_DOWN;
+        break;
+      case webstreamer::MouseAction::BUTTON_UP:
+        result = inputHandler::TMouseInputState::MIS_BUTTON_UP;
+        break;
+      case webstreamer::MouseAction::DOUBLE_CLICK:
+        result = inputHandler::TMouseInputState::MIS_BUTTON_DBL_CLICK;
+        break;
+      default:
+        break;
+    }
+
+    return result;
+  }
+
+  inputHandler::TKeyInputState 
+  WebstreamerInputProcessor::WSKeyStateToDSKeyState ( webstreamer::KeyboardAction ka_ )
+  {
+    inputHandler::TKeyInputState 
+      result = inputHandler::KeyInputState::KIS_KEY_UNKNOWN;
+
+    switch ( ka_ )
+    {
+      case webstreamer::KeyboardAction::KEY_DOWN:
+        result = inputHandler::TKeyInputState::KIS_KEY_DOWN;
+        break;
+      case webstreamer::KeyboardAction::KEY_UP:
+        result = inputHandler::TKeyInputState::KIS_KEY_UP;
+        break;
+      case webstreamer::KeyboardAction::KEY_PRESS:
+        result = inputHandler::TKeyInputState::KIS_KEY_PRESS;
+        break;
+    }
+
+    return result;
+  }
+}
+#endif //REMO_USE_WEBSTREAMER defined

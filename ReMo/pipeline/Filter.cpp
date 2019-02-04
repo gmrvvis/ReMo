@@ -18,28 +18,12 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#include "Filter.h"
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
-
-namespace remo //Probably this code must be in nsol in the future
+namespace remo
 {
-  class Utils
+  Filter::Filter ( void ): FFOperation ( )
   {
-      static Utils* _instance;
-
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
-    public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
-  };
+    _description = "Basic Filter Operation";
+  }
 }
-
-#endif

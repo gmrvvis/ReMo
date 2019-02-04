@@ -18,28 +18,21 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#include "MediaImage.h"
+#include "Utils.h"
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
-
-namespace remo //Probably this code must be in nsol in the future
+namespace remo
 {
-  class Utils
+  MediaImage::MediaImage ( std::string imageName_ )
+    : Media ( ), _imageName ( imageName_ )
   {
-      static Utils* _instance;
+    _description = "Image file.";
+  }
 
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
-    public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
-  };
+  void MediaImage::init ( void )
+  {
+    Utils::getInstance ( )->getLog ( ) ( LOG_LEVEL::INFO,
+                                         "Video file initiated:",
+                                         this->getImageName ( ));
+  }
 }
-
-#endif

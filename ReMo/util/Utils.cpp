@@ -24,20 +24,20 @@ namespace remo
 {
   Utils* Utils::_instance = nullptr;
 
-  Utils* Utils::getInstance ( )
+  Utils* Utils::getInstance ( void )
   {
     if ( _instance == nullptr )
       _instance = new Utils;
     return _instance;
   }
 
-  Utils::~Utils ( )
+  Utils::~Utils ( void )
   {
     if ( _instance != nullptr )
       delete _instance;
   }
 
-  errorManager* Utils::getErrorManager ( )
+  ErrorManager* Utils::getErrorManager ( void )
   {
     if ( _errorManager == nullptr )
       _errorManager->setLog ( &_logInstance );

@@ -18,28 +18,30 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#include "FFOperation.h"
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
-
-namespace remo //Probably this code must be in nsol in the future
+namespace remo
 {
-  class Utils
+  FFOperation::FFOperation ( void ): Operation ( )
   {
-      static Utils* _instance;
+    _description = "Basic ffmpeg/libAV Operation";
+  }
 
-      Utils ( void ) {};
-      ~Utils ( void );
+  void FFOperation::setOption ( std::string option_, std::string value_ )
+  {
+    av_dict_set ( &_options, option_.c_str ( ), value_.c_str ( ), 0 );
+  }
 
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
-    public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
-  };
+  void FFOperation::setFrames ( AVFrame* inAVFrame_, AVFrame* outAVFrame_ )
+  {
+    _inAVFrame = inAVFrame_;
+    _outAVFrame = outAVFrame_;
+  }
+
+  void FFOperation::setPackages ( AVPacket* inAVPacket_,
+                                   AVPacket* outAVPacket_ )
+  {
+    _inAVPacket = inAVPacket_;
+    _outAVPacket = outAVPacket_;
+  }
 }
-
-#endif

@@ -18,28 +18,23 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#ifndef REMO_ENCODER_H
+#define REMO_ENCODER_H
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
+#include <string>
+#include "ffdefs.h"
+#include "FFOperation.h"
 
-namespace remo //Probably this code must be in nsol in the future
+namespace remo
 {
-  class Utils
+  class Encoder: public FFOperation
   {
-      static Utils* _instance;
-
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
     public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
+      Encoder ( void );
+      virtual ~Encoder ( void ) = default;
+
+      virtual void init ( void ) = 0;
+      virtual void apply ( void ) = 0;
   };
 }
-
-#endif
+#endif //REMO_ENCODER_H

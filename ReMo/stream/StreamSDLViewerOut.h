@@ -18,28 +18,26 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#ifndef REMO_STREAM_SDLVIEWER_H
+#define REMO_STREAM_SDLVIEWER_H
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
+#include "FFStream.h"
 
-namespace remo //Probably this code must be in nsol in the future
+namespace remo
 {
-  class Utils
+  class StreamSDLViewerOut: public FFStream
   {
-      static Utils* _instance;
-
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
     public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
+      StreamSDLViewerOut ( Media* outMedia_ );
+      virtual ~StreamSDLViewerOut ( void ) = default;
+
+      std::string getDescription ( void );
+
+      virtual void init ( void );
+
+      Media* getMedia ( void ) { return _media; };
+    private:
+
   };
 }
-
-#endif
+#endif //REMO_STREAM_SDLVIEWER_H

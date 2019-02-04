@@ -18,28 +18,40 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#ifdef REMO_USE_WEBSTREAMER
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
+#ifndef REMO_STREAM_WEBSTREAMER_H
+#define REMO_STREAM_WEBSTREAMER_H
 
-namespace remo //Probably this code must be in nsol in the future
+#include "FFStream.h"
+#include "MediaWebStreamer.h"
+
+namespace remo
 {
-  class Utils
+  class StreamWebStreamer: public FFStream
   {
-      static Utils* _instance;
-
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
     public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
+      StreamWebStreamer ( Media* outMedia_ );
+      virtual ~StreamWebStreamer ( void );
+
+      std::string getDescription ( void );
+
+      virtual void init ( void );
+
+      bool isSync ( void );
+
+      void pushFrame ( AVFrame* frame_ );
+
+      Media* getMedia ( ) { return _media; };
+
+    private:
+      MediaWebStreamer * _mediaWebStreamer;
+      ImageConverter* _imageConverter;
+
+      webstreamer::StopWatch<> frame_stopwatch;
+      std::chrono::microseconds frame_interval;
+
   };
 }
-
-#endif
+#endif //REMO_USE_WEBSTREAMER defined
+#endif //REMO_STREAM_WEBSTREAMER_H

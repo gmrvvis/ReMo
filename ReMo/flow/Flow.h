@@ -18,28 +18,39 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#ifndef REMO_FLOW_H
+#define REMO_FLOW_H
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
+#include <memory>
 
-namespace remo //Probably this code must be in nsol in the future
+#include "FFPipeline.h"
+#include "StreamDeviceIn.h"
+#include "StreamVideoFileOut.h"
+
+namespace remo
 {
-  class Utils
+  class Flow
   {
-      static Utils* _instance;
-
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
     public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
+      Flow ( Stream* inStream_, Stream* outStream_ );
+      virtual ~Flow ( void ) = default;
+
+      virtual void init ( void ) = 0;
+      virtual void processStreams ( void ) = 0;
+
+      std::string getDescription ( void );
+      void setPipeline ( FFPipeline* ffPipeline_ = nullptr );
+      FFPipeline* getPipeline ( ) { return _ffPipeline; };
+
+    protected:
+
+      std::string _description;
+
+      Stream* _inStream;
+      Stream* _outStream;
+      
+      FFPipeline* _ffPipeline;
   };
 }
 
-#endif
+#endif //REMO_FLOW_H

@@ -18,28 +18,32 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#include "Flow.h"
+#include "Utils.h"
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
-
-namespace remo //Probably this code must be in nsol in the future
+namespace remo
 {
-  class Utils
+  Flow::Flow ( Stream* inStream_, Stream* outStream_ ):
+    _description ( "Base Flow" ),
+    _inStream ( inStream_ ),
+    _outStream ( outStream_ ),
+    _ffPipeline ( nullptr ) {}
+
+  std::string Flow::getDescription ( void )
   {
-      static Utils* _instance;
+    return _description;
+  }
 
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
-    public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
-  };
+  void Flow::setPipeline ( FFPipeline* stdPipeline_ )
+  {
+    if ( stdPipeline_ == nullptr )
+    {
+      Utils::getInstance ( )
+        ->getLog ( ) ( remo::LOG_LEVEL::INFO, "Pipeline not connected." );
+    }
+    else
+    {
+      _ffPipeline = stdPipeline_;
+    }
+  }
 }
-
-#endif

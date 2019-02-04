@@ -18,28 +18,24 @@
  *
  */
 
-#ifndef _REMO_UTILS_
-#define _REMO_UTILS_
+#ifndef REMO_PIPELINE_H
+#define REMO_PIPELINE_H
 
-#include "Logger.hpp"
-#include "ErrorManager.h"
+#include "string"
 
-namespace remo //Probably this code must be in nsol in the future
+namespace remo
 {
-  class Utils
+  class Pipeline
   {
-      static Utils* _instance;
-
-      Utils ( void ) {};
-      ~Utils ( void );
-
-      log _logInstance;
-      ErrorManager* _errorManager = nullptr;
     public:
-      static Utils* getInstance ( void );
-      log getLog ( void ) { return _logInstance; };
-      ErrorManager* getErrorManager ( void );
+      Pipeline ( void );
+      virtual ~Pipeline ( void ) = default;
+
+      std::string getDescription ( void );
+
+    protected:
+
+      std::string _description;
   };
 }
-
-#endif
+#endif //REMO_PEPELINE_H

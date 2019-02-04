@@ -5,103 +5,102 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/pipeline)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/util)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/util/IO)
 
-set(REMO_SOURCES  media/media.cpp
-                  media/mediaDesktop.cpp
-                  media/mediaImage.cpp
-                  media/mediaSDLViewer.cpp
-                  media/mediaVideoFile.cpp
-                  media/mediaWebCam.cpp
-                  media/ffMedia.cpp
+set( REMO_SOURCES   media/Media.cpp
+                    media/MediaDesktop.cpp
+                    media/MediaImage.cpp
+                    media/MediaSDLViewer.cpp
+                    media/MediaVideoFile.cpp
+                    media/MediaWebCam.cpp
+                    media/FFMedia.cpp
 
-                  stream/ffStream.cpp
-                  stream/stream.cpp
-                  stream/streamDeviceIn.cpp
-                  stream/streamSDLViewerOut.cpp
-                  stream/streamVideoFileOut.cpp
+                    stream/FFStream.cpp
+                    stream/Stream.cpp
+                    stream/StreamDeviceIn.cpp
+                    stream/StreamSDLViewerOut.cpp
+                    stream/StreamVideoFileOut.cpp
 
-                  flow/flow.cpp
-                  flow/flowDeviceToSDLViewer.cpp
-                  flow/flowDeviceToVideoFile.cpp
+                    flow/Flow.cpp
+                    flow/FlowDeviceToSDLViewer.cpp
+                    flow/FlowDeviceToVideoFile.cpp
 
-                  pipeline/decoder.cpp
-                  pipeline/encoder.cpp
-                  pipeline/filter.cpp
-                  pipeline/gauss.cpp
-                  pipeline/imgProc.cpp
-                  pipeline/muxer.cpp
-                  pipeline/operation.cpp
-                  pipeline/pipeline.cpp
-                  pipeline/ffOperation.cpp
-                  pipeline/ffPipeline.cpp
-                  pipeline/AbstractImageSampler.cpp
-                  pipeline/ImageConverter.cpp
+                    pipeline/Decoder.cpp
+                    pipeline/Encoder.cpp
+                    pipeline/Filter.cpp
+                    pipeline/Gauss.cpp
+                    pipeline/ImgProc.cpp
+                    pipeline/Muxer.cpp
+                    pipeline/Operation.cpp
+                    pipeline/Pipeline.cpp
+                    pipeline/FFOperation.cpp
+                    pipeline/FFPipeline.cpp
+                    pipeline/AbstractImageSampler.cpp
+                    pipeline/ImageConverter.cpp
 
-                  util/errorManager.cpp
-                  util/logger.hpp
-                  util/Utils.cpp
-                  util/IO/inputManager.cpp
+                    util/ErrorManager.cpp
+                    util/Logger.hpp
+                    util/Utils.cpp
+                    util/IO/InputManager.cpp
 )
 
-set(REMO_PUBLIC_HEADERS  media/media.h
-                         media/ffMedia.h
-                         media/mediaDesktop.h
-                         media/mediaImage.h
-                         media/mediaSDLViewer.h
-                         media/mediaVideoFile.h
-                         media/mediaWebCam.h
+set( REMO_PUBLIC_HEADERS    media/Media.h
+                            media/FFMedia.h
+                            media/MediaDesktop.h
+                            media/MediaImage.h
+                            media/MediaSDLViewer.h
+                            media/MediaVideoFile.h
+                            media/MediaWebCam.h
 
-                         stream/ffStream.h
-                         stream/streamDeviceIn.h
-                         stream/stream.h
-                         stream/streamSDLViewerOut.h
-                         stream/streamVideoFileOut.h
+                            stream/FFStream.h
+                            stream/StreamDeviceIn.h
+                            stream/Stream.h
+                            stream/StreamSDLViewerOut.h
+                            stream/StreamVideoFileOut.h
 
-                         flow/flow.h
-                         flow/flowDeviceToSDLViewer.h
-                         flow/flowDeviceToVideoFile.h
+                            flow/Flow.h
+                            flow/FlowDeviceToSDLViewer.h
+                            flow/FlowDeviceToVideoFile.h
 
-                         pipeline/decoder.h
-                         pipeline/encoder.h
-                         pipeline/filter.h
-                         pipeline/gauss.h
-                         pipeline/imgProc.h
-                         pipeline/muxer.h
-                         pipeline/operation.h
-                         pipeline/pipeline.h
-                         pipeline/ffOperation.h
-                         pipeline/ffPipeline.h
-                         pipeline/AbstractImageSampler.h
-                         pipeline/ImageConverter.h
+                            pipeline/Decoder.h
+                            pipeline/Encoder.h
+                            pipeline/Filter.h
+                            pipeline/Gauss.h
+                            pipeline/ImgProc.h
+                            pipeline/Muxer.h
+                            pipeline/Operation.h
+                            pipeline/Pipeline.h
+                            pipeline/FFOperation.h
+                            pipeline/FFPipeline.h
+                            pipeline/AbstractImageSampler.h
+                            pipeline/ImageConverter.h
 
-
-                         util/errorManager.h
-                         util/ffdefs.h
-                         util/IO/abstractInputhandler.h
-                         util/Utils.h
-                         util/IO/inputManager.h
+                            util/ErrorManager.h
+                            util/ffdefs.h
+                            util/IO/AbstractInputhandler.h
+                            util/Utils.h
+                            util/IO/InputManager.h
         )
 
 set(REMO_NAMESPACE remo)
 set(REMO_INCLUDE_NAMES ReMo )
 
 set(REMO_LINK_LIBRARIES Threads::Threads
-                         ${FFMPEG_LIBRARIES}
-                         ${SDL_LIBRARY} )
-    
+                        ${FFMPEG_LIBRARIES}
+                        ${SDL_LIBRARY} )
+
 if ( WEBSTREAMER_FOUND )
 
-    list( APPEND REMO_PUBLIC_HEADERS  media/mediaWebStreamer.h
-                                      flow/flowDeviceToWebStream.h
-                                      stream/streamWebStreamer.h
-                                      util/IO/webstreamerInputProcessor.h
-                                      util/IO/webstreamerInputProcessor.h
+    list( APPEND REMO_PUBLIC_HEADERS    media/MediaWebStreamer.h
+                                        flow/FlowDeviceToWebStream.h
+                                        stream/StreamWebStreamer.h
+                                        util/IO/WebstreamerInputProcessor.h
+                                        util/IO/WebstreamerInputProcessor.h
             )
     
-    list( APPEND REMO_SOURCES media/mediaWebStreamer.cpp
-                              stream/streamWebStreamer.cpp
-                              flow/flowDeviceToWebStream.cpp
-                              util/IO/webstreamerInputProcessor.cpp
-                              util/IO/webstreamerInputProcessor.cpp
+    list( APPEND REMO_SOURCES   media/MediaWebStreamer.cpp
+                                stream/StreamWebStreamer.cpp
+                                flow/FlowDeviceToWebStream.cpp
+                                util/IO/WebstreamerInputProcessor.cpp
+                                util/IO/WebstreamerInputProcessor.cpp
             )
     
     list( APPEND REMO_LINK_LIBRARIES ${WEBSTREAMER_LIBRARIES} )
