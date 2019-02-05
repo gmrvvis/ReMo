@@ -39,7 +39,6 @@ set( REMO_SOURCES   media/Media.cpp
                     util/ErrorManager.cpp
                     util/Logger.hpp
                     util/Utils.cpp
-                    util/IO/InputManager.cpp
 )
 
 set( REMO_PUBLIC_HEADERS    media/Media.h
@@ -75,9 +74,7 @@ set( REMO_PUBLIC_HEADERS    media/Media.h
 
                             util/ErrorManager.h
                             util/ffdefs.h
-                            util/IO/AbstractInputhandler.h
                             util/Utils.h
-                            util/IO/InputManager.h
         )
 
 set(REMO_NAMESPACE remo)

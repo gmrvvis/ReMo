@@ -9,9 +9,6 @@
 #include <webstreamer/mouse_event.hpp>
 #include <webstreamer/keyboard_event.hpp>
 
-#include "InputManager.h"
-#include "AbstractInputhandler.h"
-
 namespace remo
 {
   class WebstreamerInputProcessor : public webstreamer::AsynchronousInputProcessor 
@@ -23,14 +20,7 @@ namespace remo
       void setScreenSize ( unsigned int width_, 
                            unsigned int height_ );
 
-      void ProcessMouseInput ( const webstreamer::MouseEvent & me_ ) override;
-      void ProcessKeyboardInput ( const webstreamer::KeyboardEvent & ke_ ) override;
-
-    private:
-      inputHandler::TMouseInputButton WSButtonToDSButton ( webstreamer::MouseButton );
-      inputHandler::TMouseInputState WSBtnActionToDSButtonState ( webstreamer::MouseAction );
-      inputHandler::TKeyInputState WSKeyStateToDSKeyState ( webstreamer::KeyboardAction );
-
+    protected:
       double _screenWidth;
       double _screenHeight;
   };
