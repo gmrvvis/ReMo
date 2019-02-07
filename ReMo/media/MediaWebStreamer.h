@@ -26,6 +26,7 @@
 #include <webstreamer/webstreamer.hpp>
 #include <WebstreamerInputProcessor.h>
 #include <ImageConverter.h>
+#include <memory>
 
 #include "FFMedia.h"
 
@@ -34,7 +35,11 @@ namespace remo
   class MediaWebStreamer: public FFMedia
   {
     public:
-      MediaWebStreamer ( unsigned int image_width_ = 1280, unsigned int image_height_ = 720 );
+      MediaWebStreamer ( int webPort_ = -1,
+                         int webSocketPort_ = -1,
+                         int webRtcPort_ = -1,
+                         unsigned int image_width_ = 1280, 
+                         unsigned int image_height_ = 720 );
       virtual ~MediaWebStreamer ( void ) = default;
 
       virtual void init ( void );
@@ -46,7 +51,7 @@ namespace remo
       unsigned int getImageWidth ( void ) { return _image_width; };
       unsigned int getImageHeigh ( void ) { return _image_height; };
 
-      webstreamer::WebStreamer & getWebStreamer ( void ) {return _webStreamer;};
+      webstreamer::WebStreamer & getWebStreamer ( void ) {return *( _webStreamer.get ( ) );};
 
       void setInputProcessor ( WebstreamerInputProcessor & WSInputProcessor_ );
 
@@ -55,7 +60,7 @@ namespace remo
       unsigned int _image_width;
       unsigned int _image_height;
 
-      webstreamer::WebStreamer _webStreamer;
+      std::unique_ptr < webstreamer::WebStreamer > _webStreamer;
   };
 }
 #endif //REMO_USE_WEBSTREAMER defined

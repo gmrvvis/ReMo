@@ -25,18 +25,27 @@
 
 namespace remo
 {
-  MediaWebStreamer::MediaWebStreamer (  unsigned int image_width_, unsigned int image_height_ )
+  MediaWebStreamer::MediaWebStreamer (  int webPort_,
+                                        int webSocketPort_,
+                                        int webRtcPort_,
+                                        unsigned int image_width_, 
+                                        unsigned int image_height_ )
   : FFMedia ( ), _image_width ( image_width_ ), _image_height ( image_height_ )
     {
     _description = "WebStreamer Media sender.";
     _ffmpegQualifier = "none";
+
+    _webStreamer = std::make_unique < webstreamer::WebStreamer > ( webPort_, 
+                                                                   webSocketPort_, 
+                                                                   webRtcPort_ );
   }
 
   void MediaWebStreamer::init ( void ) {}
 
   void MediaWebStreamer::setInputProcessor ( WebstreamerInputProcessor & WSInputProcessor_ )
   {
-    _webStreamer.RegisterInputProcessor ( &WSInputProcessor_ );
+    WSInputProcessor_.setScreenSize ( _image_width, _image_height );
+    _webStreamer.get ( )->RegisterInputProcessor ( &WSInputProcessor_ );
   }
 
   void MediaWebStreamer::changeResolution ( unsigned int new_image_width_, unsigned int new_image_heigh_ )
@@ -47,10 +56,10 @@ namespace remo
 
   void MediaWebStreamer::pushImage ( ImageConverter* imageConverter_ )
   {
-    _webStreamer.PushFrame( _image_width,
-                            _image_height,
-                            imageConverter_->getImage().data( ),
-                            imageConverter_->getImage().size( ) );
+    _webStreamer.get ( )->PushFrame( _image_width,
+                                     _image_height,
+                                     imageConverter_->getImage().data( ),
+                                     imageConverter_->getImage().size( ) );
   }
 }
 #endif //REMO_USE_WEBSTREAMER
