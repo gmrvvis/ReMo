@@ -215,6 +215,11 @@ namespace remo
     av_frame_unref ( _frameProc );
     av_frame_free ( &_frameProc );
   }
+
+  void FlowDeviceToWebStream::finish ( )
+  {
+    _stop = true;
+  }
 }
 
 #endif //REMO_USE_WEBSTREAMER

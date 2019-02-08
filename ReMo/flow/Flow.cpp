@@ -46,4 +46,9 @@ namespace remo
       _ffPipeline = stdPipeline_;
     }
   }
+
+  void Flow::finish ( void )
+  {
+    
+  }
 }

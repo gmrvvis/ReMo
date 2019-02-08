@@ -37,6 +37,7 @@ namespace remo
 
       virtual void init ( void ) = 0;
       virtual void processStreams ( void ) = 0;
+      virtual void finish ( void );
 
       std::string getDescription ( void );
       void setPipeline ( FFPipeline* ffPipeline_ = nullptr );

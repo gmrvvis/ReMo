@@ -42,6 +42,7 @@ namespace remo
 
       virtual void init ( void );
       virtual void processStreams ( void );
+      virtual void finish ( void );
 
       void loop ( );
 
