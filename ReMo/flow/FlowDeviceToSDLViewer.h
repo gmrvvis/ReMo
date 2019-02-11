@@ -17,6 +17,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  */
+#ifdef REMO_USE_SDL
 
 #ifndef REMO_FLOW_DEVICETOSDLVIEWER_H
 #define REMO_FLOW_DEVICETOSDLVIEWER_H
@@ -69,3 +70,5 @@ namespace remo
 }
 
 #endif //REMO_FLOW_DEVICETOSDLVIEWER_H
+
+#endif //REMO_USE_SDL

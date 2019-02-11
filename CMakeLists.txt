@@ -29,16 +29,19 @@ set( COMMON_PROJECT_DOMAIN es.gmrv )
 
 include( Common )
 
-common_find_package( OpenGL SYSTEM REQUIRED )
-common_find_package( GLUT SYSTEM REQUIRED )
-common_find_package( GLEW SYSTEM REQUIRED )
 common_find_package( Threads SYSTEM REQUIRED )
-
-common_find_package( SDL SYSTEM REQUIRED )
 common_find_package( FFmpeg REQUIRED )
 
+common_find_package( OpenGL SYSTEM )
+common_find_package( GLUT SYSTEM )
+common_find_package( GLEW SYSTEM )
+
+common_find_package( SDL SYSTEM )
+
 common_find_package( webstreamer SYSTEM )
-common_find_package( Poco REQUIRED COMPONENTS Foundation Net Zip JSON Util )
+if ( WEBSTREAMER_FOUND )
+  common_find_package( Poco REQUIRED COMPONENTS Foundation Net Zip JSON Util )
+endif ( )
 
 common_find_package_post( )
 

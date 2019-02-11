@@ -17,6 +17,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  */
+#ifdef REMO_USE_SDL
 
 #include "StreamSDLViewerOut.h"
 
@@ -33,3 +34,5 @@ namespace remo
     _media->init ( );
   }
 }
+
+#endif //REMO_USE_SDL

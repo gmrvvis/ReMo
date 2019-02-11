@@ -45,18 +45,15 @@ set( REMO_PUBLIC_HEADERS    media/Media.h
                             media/FFMedia.h
                             media/MediaDesktop.h
                             media/MediaImage.h
-                            media/MediaSDLViewer.h
                             media/MediaVideoFile.h
                             media/MediaWebCam.h
 
                             stream/FFStream.h
                             stream/StreamDeviceIn.h
                             stream/Stream.h
-                            stream/StreamSDLViewerOut.h
                             stream/StreamVideoFileOut.h
 
                             flow/Flow.h
-                            flow/FlowDeviceToSDLViewer.h
                             flow/FlowDeviceToVideoFile.h
 
                             pipeline/Decoder.h
@@ -82,10 +79,24 @@ set(REMO_INCLUDE_NAMES ReMo )
 
 set(REMO_LINK_LIBRARIES Threads::Threads
                         ${FFMPEG_LIBRARIES}
-                        ${SDL_LIBRARY} )
+                        )
+
+if ( SDL_FOUND )
+    list( APPEND REMO_PUBLIC_HEADERS    media/MediaSDLViewer.h
+                                        stream/StreamSDLViewerOut.h
+                                        flow/FlowDeviceToSDLViewer.h
+         )
+
+    list( APPEND REMO_SOURCES   media/MediaSDLViewer.cpp
+                                stream/StreamSDLViewerOut.cpp
+                                flow/FlowDeviceToSDLViewer.cpp
+        )
+    
+    list( APPEND REMO_LINK_LIBRARIES ${SDL_LIBRARY} )
+endif ( )
+
 
 if ( WEBSTREAMER_FOUND )
-
     list( APPEND REMO_PUBLIC_HEADERS    media/MediaWebStreamer.h
                                         flow/FlowDeviceToWebStream.h
                                         stream/StreamWebStreamer.h
