@@ -23,6 +23,8 @@ list( APPEND CMAKE_MODULE_PATH
 
 include( GitExternal )
 
+option( REMO_WITH_EXAMPLES "REMO_WITH_EXAMPLES" OFF )
+
 set( REMO_DESCRIPTION "ReMo: RenderMovie is a multipurpose video syntesis framework." )
 set( REMO_LICENSE LGPL )
 set( COMMON_PROJECT_DOMAIN es.gmrv )
@@ -46,7 +48,10 @@ endif ( )
 common_find_package_post( )
 
 add_subdirectory( ReMo )
-add_subdirectory( examples )
+
+if ( REMO_WITH_EXAMPLES )
+    add_subdirectory( examples )
+endif ()
 
 if ( WEBSTREAMER_FOUND )
     #TODO: Change ${WEBSTREAMER_CMAKE_DIR} when cmake target rule will be incorportaed into webstreamer!
