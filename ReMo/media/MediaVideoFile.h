@@ -28,7 +28,7 @@ namespace remo
   class MediaVideoFile: public Media
   {
     public:
-      MediaVideoFile ( std::string file_ = "output.mp4" );
+      MediaVideoFile ( const std::string& file_ = "output.mp4" );
       virtual ~MediaVideoFile ( void ) = default;
 
       virtual void init ( void );

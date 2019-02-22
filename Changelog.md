@@ -1,3 +1,9 @@
+# v0.0.2 - (2018-02) 
+1. Add WebStreamer input media, stream and flow:
+* Basic examples using WebStreamer (Desktop and WebCam)
+* API modification to be usable with ReMoToo and ReMoLON
+* CMake configuration files improvements (optional dependencies and examples, configure with common)
+
 # v0.0.1 - (2018-12) 
 1. Initial framework functionality including:
 * Media devices: Desktop and WebCam.

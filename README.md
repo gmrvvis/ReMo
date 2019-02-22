@@ -17,23 +17,23 @@ frameworks.
 
 * Optional dependencies:
     * SDL
-    * [WebStreamer](https://github.com/HBPVIS/webstreamer)
-    * Poco (required if ReMo is build using WebStreamer: Foundation Net Zip JSON Util)
+    * [webstreamer](https://github.com/HBPVIS/webstreamer) ( commit cc5897a )
+    * Poco (required if ReMo is build using webstreamer: Foundation Net Zip JSON Util)
 
 ## Building
 
 ReMo has been successfully built and used on Ubuntu 18.04/Debian Strech Stable. 
 The following steps should be enough to build it just with the required dependencies. 
 Nevertheless, to use the video streaming features, ReMo needs to be built with 
-the WebStreamer dependency, and WebStreamer needs to be compiled as shared library. 
-The WebStreamer build directory needs to be specified to ReMo at configuration time 
+the webstreamer dependency, and webstreamer needs to be compiled as shared library. 
+The webstreamer build directory needs to be specified to ReMo at configuration time 
 using CMAKE_PREFIX_PATH variable. The Poco framework is required if ReMo is compiled
-using WebStreamer.
+using webstreamer.
 
 ## Description
 
 ```bash
-git clone https://github.com/gmrvvis/ReMo.git
+git clone --recursive https://github.com/gmrvvis/ReMo.git
 mkdir ReMo/build && cd ReMo/build
 cmake .. [-DCMAKE_PREFIX_PATH=/path/to/webstreamer/buildDirectory]
 make

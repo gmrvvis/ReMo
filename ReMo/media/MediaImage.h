@@ -28,7 +28,7 @@ namespace remo
   class MediaImage: public Media
   {
     public:
-      MediaImage ( std::string imageName_ = "image.png" );
+      MediaImage ( const std::string& imageName_ = "image.png" );
       virtual ~MediaImage ( void ) = default;
 
       virtual void init ( void );

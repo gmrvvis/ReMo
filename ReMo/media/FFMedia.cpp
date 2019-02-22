@@ -28,7 +28,7 @@ namespace remo
     _ffmpegQualifier = "None";
   }
 
-  void FFMedia::setOption ( std::string option_, std::string value_ )
+  void FFMedia::setOption ( const std::string& option_, const std::string& value_ )
   {
     av_dict_set ( &_options, option_.c_str ( ), value_.c_str ( ), 0 );
   }

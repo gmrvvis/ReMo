@@ -23,7 +23,7 @@
 
 namespace remo
 {
-  MediaImage::MediaImage ( std::string imageName_ )
+  MediaImage::MediaImage ( const std::string& imageName_ )
     : Media ( ), _imageName ( imageName_ )
   {
     _description = "Image file.";

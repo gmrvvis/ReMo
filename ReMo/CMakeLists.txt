@@ -38,8 +38,7 @@ set( REMO_SOURCES   media/Media.cpp
 
                     util/ErrorManager.cpp
                     util/Logger.hpp
-                    util/Utils.cpp
-)
+                    util/Utils.cpp )
 
 set( REMO_PUBLIC_HEADERS    media/Media.h
                             media/FFMedia.h
@@ -71,26 +70,22 @@ set( REMO_PUBLIC_HEADERS    media/Media.h
 
                             util/ErrorManager.h
                             util/ffdefs.h
-                            util/Utils.h
-        )
+                            util/Utils.h )
 
-set(REMO_NAMESPACE remo)
-set(REMO_INCLUDE_NAMES ReMo )
+set( REMO_NAMESPACE remo )
+set( REMO_INCLUDE_NAMES ReMo )
 
-set(REMO_LINK_LIBRARIES Threads::Threads
-                        ${FFMPEG_LIBRARIES}
-                        )
+set( REMO_LINK_LIBRARIES Threads::Threads
+                        ${FFMPEG_LIBRARIES} )
 
 if ( SDL_FOUND )
     list( APPEND REMO_PUBLIC_HEADERS    media/MediaSDLViewer.h
                                         stream/StreamSDLViewerOut.h
-                                        flow/FlowDeviceToSDLViewer.h
-         )
+                                        flow/FlowDeviceToSDLViewer.h )
 
     list( APPEND REMO_SOURCES   media/MediaSDLViewer.cpp
                                 stream/StreamSDLViewerOut.cpp
-                                flow/FlowDeviceToSDLViewer.cpp
-        )
+                                flow/FlowDeviceToSDLViewer.cpp )
     
     list( APPEND REMO_LINK_LIBRARIES ${SDL_LIBRARY} )
 endif ( )
@@ -101,18 +96,15 @@ if ( WEBSTREAMER_FOUND )
                                         flow/FlowDeviceToWebStream.h
                                         stream/StreamWebStreamer.h
                                         util/IO/WebstreamerInputProcessor.h
-                                        util/IO/WebstreamerInputProcessor.h
-            )
+                                        util/IO/WebstreamerInputProcessor.h )
     
     list( APPEND REMO_SOURCES   media/MediaWebStreamer.cpp
                                 stream/StreamWebStreamer.cpp
                                 flow/FlowDeviceToWebStream.cpp
                                 util/IO/WebstreamerInputProcessor.cpp
-                                util/IO/WebstreamerInputProcessor.cpp
-            )
+                                util/IO/WebstreamerInputProcessor.cpp )
     
     list( APPEND REMO_LINK_LIBRARIES ${WEBSTREAMER_LIBRARIES} )
-    
 endif ( )
 
-common_library(ReMo)
+common_library( ReMo )

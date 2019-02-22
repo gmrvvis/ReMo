@@ -37,7 +37,7 @@ namespace remo
       virtual void init ( void ) = 0;
 
       void setOptions ( AVDictionary* options_ ) { _options = options_; }
-      void setOption ( std::string option_, std::string value_ );
+      void setOption ( const std::string& option_, const std::string& value_ );
 
       AVDictionary* getOptions ( void ) { return _options; }
       std::string getQualifier ( void ) { return _ffmpegQualifier; }

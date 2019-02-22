@@ -23,7 +23,7 @@
 
 namespace remo
 {
-  MediaVideoFile::MediaVideoFile ( std::string file_ )
+  MediaVideoFile::MediaVideoFile ( const std::string& file_ )
     : Media ( ), _file ( file_ )
   {
     _description = "Video File.";

@@ -1,2 +1,0 @@
-#-*- mode: cmake -*-
-#git_subproject(webstreamer https://github.com/HBPVIS/webstreamer.git cc5897a)
