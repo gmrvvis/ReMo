@@ -26,8 +26,8 @@ ReMo has been successfully built and used on Ubuntu 18.04/Debian Strech Stable.
 The following steps should be enough to build it just with the required dependencies. 
 Nevertheless, to use the video streaming features, ReMo needs to be built with 
 the webstreamer dependency, and webstreamer needs to be compiled as shared library. 
-The webstreamer build directory needs to be specified to ReMo at configuration time 
-using CMAKE_PREFIX_PATH variable. The Poco framework is required if ReMo is compiled
+Webstreamer build directory needs to be specified to ReMo at configuration time 
+using CMAKE_PREFIX_PATH variable. Poco framework is required if ReMo is compiled
 using webstreamer.
 
 ## Description
