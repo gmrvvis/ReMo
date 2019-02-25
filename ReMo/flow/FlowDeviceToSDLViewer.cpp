@@ -23,7 +23,7 @@
 #include <libavformat/version.h>
 
 #include "FlowDeviceToSDLViewer.h"
-#include "Utils.h"
+#include "../util/Utils.h"
 
 namespace remo
 {

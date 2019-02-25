@@ -20,10 +20,10 @@
 
 #include <iostream>
 
-#include <FlowDeviceToWebStream.h>
-#include <MediaWebCam.h>
-#include <MediaWebStreamer.h>
-#include <Utils.h>
+#include <ReMo/flow/FlowDeviceToWebStream.h>
+#include <ReMo/media/MediaWebCam.h>
+#include <ReMo/media/MediaWebStreamer.h>
+#include <ReMo/util/Utils.h>
 
 using namespace std;
 

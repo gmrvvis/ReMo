@@ -23,8 +23,8 @@
 
 #include <string>
 
-#include "ffdefs.h"
-#include "Operation.h"
+#include "../util/ffdefs.h"
+#include "../pipeline/Operation.h"
 
 namespace remo
 {

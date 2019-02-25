@@ -20,10 +20,10 @@
 
 #include <iostream>
 
-#include <flow/FlowDeviceToVideoFile.h>
-#include <media/MediaDesktop.h>
-#include <media/MediaVideoFile.h>
-#include <util/Utils.h>
+#include <ReMo/flow/FlowDeviceToVideoFile.h>
+#include <ReMo/media/MediaDesktop.h>
+#include <ReMo/media/MediaVideoFile.h>
+#include <ReMo/util/Utils.h>
 
 using namespace std;
 

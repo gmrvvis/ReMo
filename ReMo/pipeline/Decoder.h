@@ -22,7 +22,7 @@
 #define REMO_DECODER_H
 
 #include <string>
-#include "ffdefs.h"
+#include "../util/ffdefs.h"
 #include "FFOperation.h"
 
 namespace remo

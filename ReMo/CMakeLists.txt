@@ -1,9 +1,9 @@
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/flow)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/media)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/stream)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/pipeline)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/util)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/util/IO)
+#include_directories( ${PROJECT_SOURCE_DIR}/ReMo/flow)
+#include_directories( ${PROJECT_SOURCE_DIR}/ReMo/media)
+#include_directories( ${PROJECT_SOURCE_DIR}/ReMo/stream)
+#include_directories( ${PROJECT_SOURCE_DIR}/ReMo/pipeline)
+#include_directories( ${PROJECT_SOURCE_DIR}/ReMo/util)
+#include_directories( ${PROJECT_SOURCE_DIR}/ReMo/util/IO)
 
 set( REMO_SOURCES   media/Media.cpp
                     media/MediaDesktop.cpp

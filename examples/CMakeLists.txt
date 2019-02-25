@@ -1,12 +1,5 @@
 
 include_directories( ${PROJECT_SOURCE_DIR}
-                     ${PROJECT_SOURCE_DIR}/ReMo
-                     ${PROJECT_SOURCE_DIR}/ReMo/flow
-                     ${PROJECT_SOURCE_DIR}/ReMo/media
-                     ${PROJECT_SOURCE_DIR}/ReMo/stream
-                     ${PROJECT_SOURCE_DIR}/ReMo/pipeline
-                     ${PROJECT_SOURCE_DIR}/ReMo/util
-                     ${PROJECT_SOURCE_DIR}/ReMo/util/IO
                      ${CMAKE_CURRENT_SOURCE_DIR}
                      ${PROJECT_BINARY_DIR} )
 
@@ -20,12 +13,12 @@ set( WEBCAMTOVIDEO_SOURCES WebCamToVideo.cpp )
 set( WEBCAMTOVIDEO_LINK_LIBRARIES ReMo )
 common_application( webCamToVideo )
 
-set( PIPELINETEST_SOURCES PipelineSimpleTest.cpp )
-set( PIPELINETEST_HEADERS )
-set( PIPELINETEST_LINK_LIBRARIES ReMo )
-common_application( pipelineTest )
 
 if ( SDL_FOUND )
+  set( PIPELINETEST_SOURCES PipelineSimpleTest.cpp )
+  set( PIPELINETEST_HEADERS )
+  set( PIPELINETEST_LINK_LIBRARIES ReMo )
+  common_application( pipelineTest )
 
   set( SDLDESKTOPVIEWER_HEADERS )
   set( SDLDESKTOPVIEWER_SOURCES SDLDesktopViewer.cpp )

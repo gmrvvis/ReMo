@@ -21,8 +21,8 @@
 #define REMO_STREAM_DEVICEIN_H
 
 #include "FFStream.h"
-#include "MediaDesktop.h"
-#include "MediaWebCam.h"
+#include "../media/MediaDesktop.h"
+#include "../media/MediaWebCam.h"
 
 namespace remo
 {

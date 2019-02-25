@@ -23,7 +23,7 @@
 #define REMO_FILTER_H
 
 #include <string>
-#include "ffdefs.h"
+#include "../util/ffdefs.h"
 #include "FFOperation.h"
 
 namespace remo

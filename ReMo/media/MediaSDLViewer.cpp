@@ -20,7 +20,7 @@
 #ifdef REMO_USE_SDL
 
 #include "MediaSDLViewer.h"
-#include "Utils.h"
+#include "../util/Utils.h"
 
 namespace remo
 {
