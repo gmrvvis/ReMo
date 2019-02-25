@@ -40,9 +40,11 @@ common_find_package( GLEW SYSTEM )
 
 common_find_package( SDL SYSTEM )
 
+common_find_package( Poco SYSTEM COMPONENTS Util XML JSON NetSSL Crypto Net Foundation )
+
 common_find_package( webstreamer SYSTEM )
-if ( WEBSTREAMER_FOUND )
-  common_find_package( Poco REQUIRED COMPONENTS Foundation Net Zip JSON Util )
+if ( Poco_FOUND AND WEBSTREAMER_FOUND )
+  common_find_package( Poco REQUIRED COMPONENTS Zip )
 endif ( )
 
 common_find_package_post( )
