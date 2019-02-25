@@ -20,10 +20,10 @@
 
 #include <iostream>
 
-#include <FlowDeviceToVideoFile.h>
-#include <MediaWebCam.h>
-#include <MediaVideoFile.h>
-#include <Utils.h>
+#include <ReMo/flow/FlowDeviceToVideoFile.h>
+#include <ReMo/media/MediaWebCam.h>
+#include <ReMo/media/MediaVideoFile.h>
+#include <ReMo/util/Utils.h>
 
 using namespace std;
 

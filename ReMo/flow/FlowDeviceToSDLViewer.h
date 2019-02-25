@@ -25,9 +25,9 @@
 #include <memory>
 
 #include "Flow.h"
-#include "StreamDeviceIn.h"
-#include "StreamSDLViewerOut.h"
-#include "MediaSDLViewer.h"
+#include "../stream/StreamDeviceIn.h"
+#include "../stream/StreamSDLViewerOut.h"
+#include "../media/MediaSDLViewer.h"
 
 namespace remo
 {

@@ -24,7 +24,7 @@
 #define REMO_STREAM_WEBSTREAMER_H
 
 #include "FFStream.h"
-#include "MediaWebStreamer.h"
+#include "../media/MediaWebStreamer.h"
 
 namespace remo
 {

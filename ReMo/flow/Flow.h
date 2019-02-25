@@ -23,9 +23,9 @@
 
 #include <memory>
 
-#include "FFPipeline.h"
-#include "StreamDeviceIn.h"
-#include "StreamVideoFileOut.h"
+#include "../pipeline/FFPipeline.h"
+#include "../stream/StreamDeviceIn.h"
+#include "../stream/StreamVideoFileOut.h"
 
 namespace remo
 {

@@ -19,8 +19,8 @@
  */
 
 #include "StreamVideoFileOut.h"
-#include "Utils.h"
-#include "MediaVideoFile.h"
+#include "../util/Utils.h"
+#include "../media/MediaVideoFile.h"
 
 namespace remo
 {

@@ -24,10 +24,10 @@
 #include <string>
 #include <vector>
 
-#include "ffdefs.h"
-#include "Stream.h"
-#include "Pipeline.h"
-#include "FFOperation.h"
+#include "../util/ffdefs.h"
+#include "../stream/Stream.h"
+#include "../pipeline/Pipeline.h"
+#include "../pipeline/FFOperation.h"
 
 namespace remo
 {

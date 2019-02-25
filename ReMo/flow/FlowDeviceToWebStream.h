@@ -26,9 +26,9 @@
 #include <memory>
 
 #include "Flow.h"
-#include "StreamDeviceIn.h"
-#include "StreamWebStreamer.h"
-#include "MediaWebStreamer.h"
+#include "../stream/StreamDeviceIn.h"
+#include "../stream/StreamWebStreamer.h"
+#include "../media/MediaWebStreamer.h"
 
 namespace remo
 {

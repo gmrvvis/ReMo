@@ -24,8 +24,8 @@
 #include <memory>
 
 #include "Flow.h"
-#include "StreamDeviceIn.h"
-#include "StreamVideoFileOut.h"
+#include "../stream/StreamDeviceIn.h"
+#include "../stream/StreamVideoFileOut.h"
 
 namespace remo
 {

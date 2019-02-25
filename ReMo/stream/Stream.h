@@ -21,7 +21,7 @@
 #ifndef REMO_STREAM_H
 #define REMO_STREAM_H
 
-#include "Media.h"
+#include "../media/Media.h"
 
 namespace remo
 {

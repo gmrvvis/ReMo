@@ -23,7 +23,7 @@
 
 #include <string>
 
-#include "ffdefs.h"
+#include "../util/ffdefs.h"
 #include "Media.h"
 
 namespace remo

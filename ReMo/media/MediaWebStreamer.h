@@ -24,8 +24,8 @@
 #define REMO_MEDIA_WEBSTREAMER_H
 
 #include <webstreamer/webstreamer.hpp>
-#include <WebstreamerInputProcessor.h>
-#include <ImageConverter.h>
+#include "../util/IO/WebstreamerInputProcessor.h"
+#include "../pipeline/ImageConverter.h"
 #include <memory>
 
 #include "FFMedia.h"

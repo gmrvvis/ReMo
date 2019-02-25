@@ -21,7 +21,7 @@
 #ifdef REMO_USE_WEBSTREAMER
 
 #include "MediaWebStreamer.h"
-#include "Utils.h"
+#include "../util/Utils.h"
 
 namespace remo
 {
