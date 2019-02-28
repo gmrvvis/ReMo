@@ -87,7 +87,6 @@ namespace remo
     for ( auto& it_ : _ops )
     {
       it_->apply ( );
-      //### frames and packages needs to be swaped
     }
   }
 }

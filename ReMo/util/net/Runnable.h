@@ -1,7 +1,7 @@
 /*
- * Copyright (c) 2018 CCS/UPM - GMRV/URJC.
+ * Copyright (c) 2019 CCS/UPM - GMRV/URJC.
  *
- * Authors: Juan Pedro Brito Méndez <juanpedro.brito@upm.es>
+ * Authors: Nadir Román Guerrero <nadir.roman@urjc.es>
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License version 3.0 as published
@@ -17,26 +17,22 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  */
+ 
+#ifndef REMO_RUNNABLE_H_
+#define REMO_RUNNABLE_H_
 
-#include "MediaWebCam.h"
+#include <memory>
 
 namespace remo
 {
-  MediaWebCam::MediaWebCam ( void )
+  class Runnable
   {
-    _description = "WebCam grabber.";
-    _ffmpegQualifier = "video4linux2";
+    public:
+      virtual void run ( ) { }
+      virtual ~Runnable ( void ) = default;
+  };
 
-    setPhysicalMedia ( );
-  }
-
-  void MediaWebCam::init ( void )
-  {
-    //Something to do here
-  }
-
-  void MediaWebCam::setPhysicalMedia ( const std::string& physicalMedia_ )
-  {
-    _physicalMedia = physicalMedia_;
-  }
+  typedef std::unique_ptr < Runnable > runnablePtr;
 }
+
+#endif

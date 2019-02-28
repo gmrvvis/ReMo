@@ -94,7 +94,6 @@ namespace remo
       Utils::getInstance ( )->getErrorManager ( )->criticalError ( "Unable to set parameters to context." );
     }
 
-    //### deprecated!, it needs to be changed!
     _AVCodecContext = _videoStream->codec;
 
     //### set property of the video file multiple properties needs to be evaluated here!
@@ -178,7 +177,6 @@ namespace remo
                             ->criticalError ( "Error in setting preset values." );
     }
 
-    //###value = avformat_find_stream_info(_AVFormatContext, nullptr);
     if ( value < 0 )
     {
       avcodec_close ( _AVCodecContext );

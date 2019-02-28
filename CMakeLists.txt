@@ -1,6 +1,6 @@
 cmake_minimum_required ( VERSION 3.10 )
-project ( ReMo VERSION 0.0.2)
-set( ReMo_VERSION_ABI 1 )
+project ( ReMo VERSION 0.0.3)
+set( ReMo_VERSION_ABI 2 )
 
 if( NOT CMAKE_BUILD_TYPE )
   set( CMAKE_BUILD_TYPE Release )
@@ -40,9 +40,11 @@ common_find_package( GLEW SYSTEM )
 
 common_find_package( SDL SYSTEM )
 
+common_find_package( Poco SYSTEM COMPONENTS Util XML JSON NetSSL Crypto Net Foundation )
+
 common_find_package( webstreamer SYSTEM )
-if ( WEBSTREAMER_FOUND )
-  common_find_package( Poco REQUIRED COMPONENTS Foundation Net Zip JSON Util )
+if ( Poco_FOUND AND WEBSTREAMER_FOUND )
+  common_find_package( Poco REQUIRED COMPONENTS Zip )
 endif ( )
 
 common_find_package_post( )

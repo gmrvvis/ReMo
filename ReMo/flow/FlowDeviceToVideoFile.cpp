@@ -292,7 +292,6 @@ namespace remo
           _outAVPacket->data = nullptr;
           _outAVPacket->size = 0;
 
-          //###Old style -> looks less agressive!
           //avcodec_encode_video2 ( _pOutFile->getCodecContext ( ), _outAVPacket, _outAVFrame, &got_picture );
 
           avcodec_send_frame ( _outFile->getCodecContext ( ), _outAVFrame );
@@ -332,7 +331,6 @@ namespace remo
       }
     }
 
-    //### Progressive video writing could be better option! -> Use av_encodeframe progresively
     value = av_write_trailer ( _outFile->getFormatContext ( ));
     if ( value < 0 )
     {

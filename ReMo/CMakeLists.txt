@@ -38,7 +38,8 @@ set( REMO_SOURCES   media/Media.cpp
 
                     util/ErrorManager.cpp
                     util/Logger.hpp
-                    util/Utils.cpp )
+                    util/Utils.cpp 
+                    util/Config.cpp )
 
 set( REMO_PUBLIC_HEADERS    media/Media.h
                             media/FFMedia.h
@@ -70,7 +71,8 @@ set( REMO_PUBLIC_HEADERS    media/Media.h
 
                             util/ErrorManager.h
                             util/ffdefs.h
-                            util/Utils.h )
+                            util/Utils.h
+                            util/Config.h )
 
 set( REMO_NAMESPACE remo )
 set( REMO_INCLUDE_NAMES ReMo )
@@ -88,6 +90,28 @@ if ( SDL_FOUND )
                                 flow/FlowDeviceToSDLViewer.cpp )
     
     list( APPEND REMO_LINK_LIBRARIES ${SDL_LIBRARY} )
+endif ( )
+
+if ( Poco_FOUND )
+    list( APPEND REMO_PUBLIC_HEADERS    util/net/ByteBuffer.h
+                                        util/net/Client.h
+                                        util/net/Connection.h
+                                        util/net/Packet.h
+                                        util/net/PacketHandler.h
+                                        util/net/Runnable.h
+                                        util/net/SelectorThread.h
+                                        util/net/Server.h
+                                        util/net/ThreadPool.h )
+
+    list( APPEND REMO_SOURCES   util/net/ByteBuffer.cpp
+                                util/net/Client.cpp
+                                util/net/Connection.cpp
+                                util/net/Packet.cpp
+                                util/net/PacketHandler.cpp
+                                util/net/SelectorThread.cpp
+                                util/net/Server.cpp )
+
+    list( APPEND REMO_LINK_LIBRARIES ${Poco_LIBRARIES} )
 endif ( )
 
 

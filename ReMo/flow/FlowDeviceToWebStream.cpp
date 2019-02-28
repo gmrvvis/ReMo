@@ -103,10 +103,9 @@ namespace remo
 
   void FlowDeviceToWebStream::processStreams ( void )
   {
-    //### It needs to be analyzed!!! -> Sometimes crashes and others dont!
     /*
     std::thread th_ ( &FlowDeviceToWebStream::loop, this );
-    th_.detach ( ); //###This kills the the object of the execution at the end!
+    th_.detach ( ); 
 
     Utils::getInstance ( )->getLog ( ) ( LOG_LEVEL::WARNING,
                                          "Press any key to finish the thread!." );
