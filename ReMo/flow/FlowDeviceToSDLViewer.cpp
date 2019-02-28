@@ -110,9 +110,8 @@ namespace remo
   {
     if ( _continuousExecution )
     {
-      //### It needs to be analyzed!!! -> Sometimes crashes and others dont!
       std::thread th_ ( &FlowDeviceToSDLViewer::loop, this );
-      th_.detach ( ); //###This kills the the object of the execution at the end!
+      th_.detach ( ); 
 
       Utils::getInstance ( )->getLog ( ) ( LOG_LEVEL::WARNING,
                                            "Press any key to finish the thread!." );
@@ -172,7 +171,6 @@ namespace remo
     MediaSDLViewer
       * vMedia_ = static_cast<MediaSDLViewer*>(_outViewer->getMedia ( ));
 
-    //###Probably an image Operation could be a better option! -> Pipeline integration
     _swsCtx = sws_getContext ( _inDevice->getCodecContext ( )->width,
                                _inDevice->getCodecContext ( )->height,
                                _inDevice->getCodecContext ( )->pix_fmt,

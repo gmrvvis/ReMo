@@ -151,8 +151,6 @@ namespace remo
     int received;
 
     // Discard any previous content from another connection
-    // TODO: Temporary-auxiliar buffers per client to save split content?
-    // Shouldn't be necessary as the protocol is compossed of small packets
     _readBuffer.reset ( );
 
     Poco::Net::StreamSocket * socket = con_->getSocket ( );

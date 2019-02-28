@@ -181,8 +181,6 @@ namespace remo
   {
     if ( sizeof( int16_t ) + _used < _size)
     {
-      //std::memcpy ( getAppendPtr ( ), &s_, sizeof ( s_ ));
-
       char * buf = getAppendPtr ( );
       buf[ 0 ] = s_ & 0xff;
       buf[ 1 ] = ( s_ >> 8 ) & 0xff;
@@ -195,7 +193,6 @@ namespace remo
   {
     if ( sizeof( int32_t ) + _used < _size)
     {
-      //std::memcpy( getAppendPtr ( ), &i_, sizeof ( i_ ));
       char * buf = getAppendPtr ( );
       buf [ 0 ] = i_ & 0xff;
       buf [ 1 ] = ( i_ >> 8 ) & 0xff;
@@ -211,7 +208,6 @@ namespace remo
   {
     if ( sizeof( int64_t ) + _used < _size)
     {
-      //std::memcpy( getAppendPtr ( ), &l_, sizeof ( l_ ));
       char * buf = getAppendPtr ( );
       buf [ 0 ] = l_ & 0xff;
       buf [ 1 ] = ( l_ >> 8 ) & 0xff;

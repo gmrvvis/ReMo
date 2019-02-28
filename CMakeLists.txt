@@ -1,6 +1,6 @@
 cmake_minimum_required ( VERSION 3.10 )
-project ( ReMo VERSION 0.0.2)
-set( ReMo_VERSION_ABI 1 )
+project ( ReMo VERSION 0.0.3)
+set( ReMo_VERSION_ABI 2 )
 
 if( NOT CMAKE_BUILD_TYPE )
   set( CMAKE_BUILD_TYPE Release )

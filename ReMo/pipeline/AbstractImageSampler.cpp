@@ -28,7 +28,6 @@ namespace remo
     r = srcBuffer[0][index + 2];
     g = srcBuffer[0][index + 1];
     b = srcBuffer[0][index];
-    //### Not used here but necessary for the others samplers
     ( void ) srcHeight;
   }
 

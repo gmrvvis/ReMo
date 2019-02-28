@@ -91,7 +91,6 @@ namespace remo
 
   void AbstractServer::assignConnectionToWorker ( ConnectionPtr & con_ )
   {
-    //###SelectorThread * lessLoaded;
     SelectorThread * lessLoaded = nullptr;
     
     std::size_t lessLoad = 999999;

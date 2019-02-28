@@ -173,7 +173,6 @@ namespace remo
           long diff = currentTime - wt->_lastActiveTime;
           if ( diff > _maxIdleTimeMilis )
           {
-            // sayonara
             wt->_active = false; // set thread to finish
             _currentPoolSize--;
           }

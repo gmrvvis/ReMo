@@ -34,7 +34,6 @@ namespace remo
   class FFPipeline: public Pipeline
   {
     public:
-      //###Multistreams needs to be added!
       FFPipeline ( Stream* inStream_ = nullptr,
                     Stream* outStream_ = nullptr );
 

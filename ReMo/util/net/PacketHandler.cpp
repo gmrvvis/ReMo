@@ -62,7 +62,6 @@ namespace remo
       AbstractPacketFactory * factory = _packetFactories [ packetOpcode ].get ( );
       if(factory)
       {
-        //### Shadowing
         ReceivablePacketPtr pPtr2 = factory->createPacket ( );
         ReceivablePacket * p = pPtr2.get ( );
 

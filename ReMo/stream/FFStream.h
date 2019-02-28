@@ -21,7 +21,7 @@
 #ifndef REMO_FFSTREAM_H
 #define REMO_FFSTREAM_H
 
-#include "../stream/Stream.h"
+#include "Stream.h"
 #include "../util/ffdefs.h"
 
 namespace remo

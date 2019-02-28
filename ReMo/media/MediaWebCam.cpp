@@ -27,7 +27,6 @@ namespace remo
     _description = "WebCam grabber.";
     _ffmpegQualifier = "video4linux2";
 
-    //###Windows and MacOS needs to be added!
     setPhysicalMedia ( );
   }
 
