@@ -1,6 +1,22 @@
 stages:
  - build
 
+Ubuntu-master:
+ stage: build
+ script:
+  - date
+  - hostname
+  - uname -a
+  - module load webstreamer poco-1.8.1 webstreamer
+  - export BUILD_GENERATOR="Ninja"
+  - export CMAKE_EXTRA_ARGS="-DREMO_WITH_EXAMPLES=ON -DCMAKE_PREFIX_PATH=\"$WEBSTREAMER_DIR;$POCO_DIR\""
+  - export GITHUB_MIRROR_URL="git@github.com:gmrvvis/ReMo"
+  - bash .gitlab-ci.sh
+ only:
+  - master
+ tags:
+  - ubuntu
+
 Ubuntu:
  stage: build
  script:
@@ -11,5 +27,7 @@ Ubuntu:
   - export BUILD_GENERATOR="Ninja"
   - export CMAKE_EXTRA_ARGS="-DREMO_WITH_EXAMPLES=ON -DCMAKE_PREFIX_PATH=\"$WEBSTREAMER_DIR;$POCO_DIR\""
   - bash .gitlab-ci.sh
+ except:
+    - master
  tags:
   - ubuntu
